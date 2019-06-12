@@ -2,7 +2,9 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
+
   devise_for :users, :controllers => {:omniauth_callbacks => "callbacks"}
+
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
   end
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
     get 'signup', to: 'devise/registrations#new'
   end
 
-  resources :file_uploads
+  resources :file_uploads, only: [:create, :new]
 
+  resources :kind_transactions, only: [:index]
 end

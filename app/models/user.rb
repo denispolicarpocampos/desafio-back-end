@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  has_many :transaction_value
+  has_many :transaction_values
 
 
   def self.from_omniauth(auth)

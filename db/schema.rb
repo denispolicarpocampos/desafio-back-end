@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2019_06_11_235937) do
   enable_extension "plpgsql"
 
   create_table "kind_transactions", force: :cascade do |t|
-    t.string "description"
-    t.integer "nature"
-    t.integer "signal"
+    t.string "description", null: false
+    t.integer "nature", null: false
+    t.integer "signal", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

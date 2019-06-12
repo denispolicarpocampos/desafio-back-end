@@ -1,0 +1,26 @@
+<p>Lista de operações</p>
+
+<% if @transactions.present? %>
+  <table>
+    <tr>
+      <th>Descrição</th>
+      <th>Natureza</th>
+      <th>Sinal</th>
+      <th>Valor</th>
+    </tr>
+      <% @transactions.each do |t| %>
+        <tr>
+          <td><%= t.kind_transaction.description %></td>
+          <td><%= t.kind_transaction.nature %></td>
+          <td><%= t.kind_transaction.signal %></td>
+          <td><%= t.value %></td>
+        </tr>
+      <%end%>
+  </table>
+  <p>Valor total disponível: <%= @value %></p>
+  <%= will_paginate @transactions %>
+<%else%>
+  <span>Não há transações realizadas para este usuário!</span>
+<%end%>
+
+

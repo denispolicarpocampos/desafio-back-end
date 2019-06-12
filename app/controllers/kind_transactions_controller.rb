@@ -1,14 +1,12 @@
 class KindTransactionsController < ApplicationController
-  before_action :find_user
-
-  def show
-    @transactions = @user.transaction_values.include(:kind_transactions).paginate(page: params[:page])
+  def index
+    transactions = current_user.transaction_values.includes(:kind_transaction)
+    @transactions = transactions.paginate(page: params[:page], per_page: 15)
+    response = AddUserValueService.call(transactions)
+    if response.success?
+      @value = response.result
+    else
+      @value = 'Não foi possível calcular seu saldo no momento!'
+    end
   end
-
-  private
-
-  def find_user
-    @user = User.find(params[:id])
-  end
-
 end

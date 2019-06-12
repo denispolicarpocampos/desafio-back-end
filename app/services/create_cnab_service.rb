@@ -17,7 +17,7 @@ class CreateCnabService
     ActiveRecord::Base.transaction do
       file = File.open(@file)
       file.each_line do |line|
-        if line.size == 81
+        if line.size == 82
           create_cnba(line)
         else
           raise StandardError

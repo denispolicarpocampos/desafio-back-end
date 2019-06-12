@@ -7,8 +7,8 @@ class FileUploadsController < ApplicationController
   def create
     file = FileUpload.new(file_params)
     if file.valid?
-      #CreateCnabService.new(file_params[:file].tempfile.path, file_params[:user][:id]).call
-      AddCnabJob.perform_later(file_params[:file].tempfile.path, file_params[:user][:id])
+      CreateCnabService.new(file_params[:file].tempfile.path, file_params[:user][:id]).call
+      #AddCnabJob.perform_later(file_params[:file].tempfile.path, file_params[:user][:id])
     else
 
     end
