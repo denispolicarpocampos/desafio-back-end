@@ -1,5 +1,5 @@
 class AddCnabJob < ApplicationJob # >
-  queue_as :parse
+  queue_as :default
 
   def perform(file, user)
     CreateCnabService.new(file, user).call

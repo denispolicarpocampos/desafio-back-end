@@ -15,13 +15,10 @@ class CreateCnabService
 
   def create_tmp_file
     ActiveRecord::Base.transaction do
-      file = File.open(@file)
-      file.each_line do |line|
-        if line.size == 82
-          create_cnba(line)
-        else
-          raise StandardError
-        end 
+      @file.each_line do |line|
+        return raise StandardError unless line.size == 82
+
+        create_cnba(line)
       end
     end
   end

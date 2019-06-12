@@ -1,8 +1,11 @@
 class FileUpload
   include ActiveModel::Model
-  extend CarrierWave::Mount
 
   attr_accessor :file, :user
-  mount_uploader :file, FileAttachUploader
   validates :file, presence: true
+  validate :file_validation
+
+  def file_validation
+    errors.add(:file, "Invalid extension") unless file.content_type == 'text/plain'
+  end
 end

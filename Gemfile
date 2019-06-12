@@ -36,8 +36,7 @@ gem 'redis', '~> 4.0'
 gem 'devise'
 gem 'omniauth-github'
 gem 'cancancan'
-gem 'sidekiq', '~> 5.2', '>= 5.2.7'
-gem 'carrierwave', '~> 1.0'
+gem 'sidekiq'
 gem 'will_paginate', '~> 3.1.0'
 
 
@@ -63,7 +62,7 @@ group :test do
   gem "ffaker"
   # Clean db adter test
   gem 'database_cleaner'
-
+  gem 'shoulda-matchers'
 end
 
 group :development do
