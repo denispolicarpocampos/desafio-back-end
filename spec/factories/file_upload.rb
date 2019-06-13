@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :file_upload do
-    file ActionDispatch::Http::UploadedFile.new(File.new("#{Rails.root}/spec/fixtures/CNAB.txt"), 'plain/text')
+    file { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/CNAB.txt'), 'text/plain') }
     user
   end
 end

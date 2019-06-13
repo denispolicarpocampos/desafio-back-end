@@ -3,6 +3,8 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
+  root "kind_transactions#index"
+
   devise_for :users, :controllers => {:omniauth_callbacks => "callbacks"}
 
   devise_scope :user do
