@@ -8,7 +8,7 @@ class CreateCnabService
   def call
     create_tmp_file
   rescue StandardError => e
-    ActiveRecord::Rollback
+    raise ActiveRecord::Rollback
   end
 
   private
@@ -16,7 +16,7 @@ class CreateCnabService
   def create_tmp_file
     ActiveRecord::Base.transaction do
       @file.each_line do |line|
-        return raise StandardError unless line.size == 82
+        return raise StandardError unless line.size == 81
 
         create_cnba(line)
       end
