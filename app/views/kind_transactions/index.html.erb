@@ -1,5 +1,7 @@
 <p>Lista de operações</p>
 
+<p><%= link_to "Adicione um arquivo clicando aqui!", new_file_upload_path %></p>
+
 <% if @transactions.present? %>
   <table>
     <tr>
@@ -12,7 +14,7 @@
         <tr>
           <td><%= t.kind_transaction.description %></td>
           <td><%= t.kind_transaction.nature %></td>
-          <td><%= t.kind_transaction.signal %></td>
+          <td><%= t.kind_transaction.positive? ? "+" : "-" %></td>
           <td><%= t.value %></td>
         </tr>
       <%end%>

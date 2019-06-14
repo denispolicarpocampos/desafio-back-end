@@ -78,3 +78,26 @@ Este desafio foi baseado neste outro desafio: https://github.com/lschallenges/da
 ---
 
 Boa sorte!
+
+
+# Rodar Projeto
+
+### Dependências:
+
+- Docker, Docker Compose
+
+
+### Rodar aplicação:
+
+- docker-compose build
+- docker-compose run --rm app bundle exec rails db:create
+- docker-compose run --rm app bundle exec rails db:migrate
+- docker-compose run --rm app bundle exec rails db:seed
+- docker-compose run --rm app bundle exec rails db:seed RAILS_ENV=test
+- docker-compose run --rm app bundle exec rails db:create RAILS_ENV=test
+- docker-compose run --rm app bundle exec rails db:migrate RAILS_ENV=test
+- docker-compose run --rm app bundle exec rails db:seed RAILS_ENV=test
+
+Para rodar os testes:
+
+- docker-compose run --rm app bundle exec rspec
