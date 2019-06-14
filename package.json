@@ -1,5 +1,7 @@
 {
   "name": "blupagamentos",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "materialize-css": "^1.0.0"
+  }
 }

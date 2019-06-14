@@ -35,7 +35,6 @@ gem 'redis', '~> 4.0'
 
 gem 'devise'
 gem 'omniauth-github'
-gem 'cancancan'
 gem 'sidekiq'
 gem 'will_paginate', '~> 3.1.0'
 
