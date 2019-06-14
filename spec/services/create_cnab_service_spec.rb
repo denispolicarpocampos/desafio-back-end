@@ -10,22 +10,15 @@ describe CreateCnabService do
   end
 
   context "result without errors" do
-
     it 'save on transaction value table' do
       expect{ subject }.to change{ TransactionValue.count }.by(file.lines.count)
     end
-
   end
 
   context "result with errors" do
-    # it 'raise StandardError' do
-    #   file_string = SecureRandom.alphanumeric(82)
-    #   expect(described_class).to receive(:new).with(file_string, user.id).and receive(:call)
-    #   described_class.new(file_string, user.id).call
-    # end
-
-    # it 'file with lines greater than 81'
-    #   expect(described_lass.new(file.lines))
-    # end
+    it 'file with lines greater than 81' do
+      file_string = SecureRandom.alphanumeric(82)
+      expect{described_class.new(file_string, user.id)}.to change {TransactionValue.count }.by(0)
+    end
   end
 end
